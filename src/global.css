@@ -1,0 +1,13 @@
+body {
+  /* fonts */
+  --font-pt-sans: "PT Sans", sans-serif;
+  --font-bebas-neue: "Bebas Neue", sans-serif;
+
+  /* colors */
+  background-color: #E5E5E5;
+  --text-color: #42567A;
+
+  --primary-color: #5D5FEF;
+  --primary-light-color: #3877EE;
+  --secondary-color: #EF5DA8;
+}
