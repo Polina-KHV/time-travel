@@ -1,10 +1,15 @@
 .carousel {
   width: 100%;
   margin-bottom: 100px;
-  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile {
+  display: none;
 }
 
 .arrow {
@@ -40,6 +45,26 @@
 
   &:hover {
     box-shadow: 0 0 15px var(--primary-light-color-20);
+  }
+}
+
+.tag {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-color);
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: var(--graphic-color-10);
+    width: 100%;
+    height: 1px;
   }
 }
 
@@ -86,4 +111,117 @@
   width: 100%;
   transition: all 0.3s ease;
   will-change: opacity, transform;
+}
+
+@media screen and (max-width: 1640px) {
+  .carousel {
+    margin-bottom: 80px;
+  }
+
+  .item {
+    gap: 10px;
+  }
+
+  .event {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .item {
+    min-width: 220px;
+    gap: 10px;
+  }
+
+  .year {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  .event {
+    font-size: 16px;
+    line-height: 120%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .carousel {
+    display: none;
+    margin-bottom: 30px;
+    margin-top: auto;
+  }
+
+  .mobile {
+    display: flex;
+  }
+
+  .swiper {
+    width: calc(100% + 80px);
+    margin: 0 -40px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 100px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--text-color);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 0;
+
+    &.active, &:hover {
+      opacity: 1;
+    }
+  }
+
+  .item {
+    min-width: none;
+    width: 210px;
+    gap: 15px;
+    padding-right: 0;
+  }
+
+  .year {
+    font-weight: normal;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .swiper {
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+  }
+
+  .item {
+    opacity: 0.4;
+    transition: opacity 0.3s easy;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .year {
+    font-size: 20px;
+  }
+
+  .event {
+    font-size: 14px;
+    line-height: 145%;
+  }
 }

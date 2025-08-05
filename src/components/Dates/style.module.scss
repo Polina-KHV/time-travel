@@ -18,3 +18,16 @@
     left: 50%;
   }
 }
+
+@media screen and (max-width: 1640px) {
+  .container {
+    max-width: none;
+    gap: 45px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .container::before {
+    display: none;
+  }
+}

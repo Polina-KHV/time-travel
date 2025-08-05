@@ -20,3 +20,28 @@
   width: 5px;
   background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
 }
+
+@media screen and (max-width: 1640px) {
+  .container {
+    gap: 25px;
+    line-height: 100%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    position: static;
+    font-size: 40px;
+    line-height: 120%;
+  }
+
+  .line {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .container {
+    font-size: 20px;
+  }
+}

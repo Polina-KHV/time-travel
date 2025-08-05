@@ -4,6 +4,7 @@ import { IDate, useDatesContext } from "../../contexts/DatesContext";
 import { Switch } from "../Switch";
 import { Title } from "../Title";
 import styles from "./style.module.scss";
+import { Carousel } from "../Carousel";
 
 export function DatePicker() {
   const { dates, setDates, activeDate, setActiveDate, baseAngle } =
@@ -175,6 +176,7 @@ export function DatePicker() {
           </div>
         ))}
       </div>
+      <Carousel type="mobile" />
       <Switch setActiveItem={(point) => handlePointClick(point)} />
     </div>
   );

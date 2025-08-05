@@ -29,10 +29,10 @@ export function Switch({ setActiveItem }: ISwitch) {
       <span>{activeDate < 10 ? `0${activeDate}` : activeDate}/06</span>
       <div className={styles.buttons}>
         <button className={styles.button} onClick={onBackButtonClick}>
-          <ChevronLeft />
+          <ChevronLeft className={styles.icon} />
         </button>
         <button className={styles.button} onClick={onNextButtonClick}>
-          <ChevronRight />
+          <ChevronRight className={styles.icon} />
         </button>
       </div>
     </div>

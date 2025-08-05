@@ -8,7 +8,7 @@ export function Dates() {
     <DatesProvider>
       <div className={styles.container}>
         <DatePicker />
-        <Carousel />
+        <Carousel type="desktop" />
       </div>
     </DatesProvider>
   );
