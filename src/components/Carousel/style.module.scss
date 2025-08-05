@@ -1,0 +1,89 @@
+.carousel {
+  width: 100%;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--primary-light-color-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: box-shadow 0.3s;
+  color: var(--primary-light-color);
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.left {
+    left: 20px;
+  }
+
+  &.right {
+    right: 20px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px var(--primary-light-color-20);
+  }
+}
+
+.item {
+  text-align: left;
+  padding-right: 16px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.year {
+  color: var(--primary-light-color);
+  font-family: var(--font-bebas-neue);
+  font-size: 25px;
+  line-height: 120%;
+  margin: 0;
+}
+
+.event {
+  color: var(--text-color);
+  font-size: 20px;
+  line-height: 30px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.swiper {
+  width: calc(100% - 160px);
+  margin: 0 80px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  transition: all 0.3s ease;
+  will-change: opacity, transform;
+}

@@ -29,6 +29,7 @@
         "noUnusedLocals": true,
         "noEmit": true,
         "jsx": "react-jsx",
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
     },
     "exclude": [
         "node_modules",
@@ -37,5 +38,10 @@
         "webpack.*.js",
         "*.config.js",
         "**/*.test.ts*"
-    ]
+    ],
+    "include": [
+        "src/**/*",
+        "src/global.d.ts",
+    ],
+    
 }

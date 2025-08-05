@@ -1,0 +1,22 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 75px;
+  align-items: center;
+  font-size: 56px;
+  line-height: 120%;
+}
+
+.title {
+  width: min-content;
+  margin: 0;
+  cursor: default;
+}
+
+.line {
+  height: 120px;
+  width: 5px;
+  background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}

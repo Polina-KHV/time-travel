@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+  border-left: 1px solid var(--graphic-color-10);
+  border-right: 1px solid var(--graphic-color-10);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: var(--graphic-color-10);
+    width: 1px;
+    height: 100%;
+    left: 50%;
+  }
+}

@@ -4,10 +4,23 @@ body {
   --font-bebas-neue: "Bebas Neue", sans-serif;
 
   /* colors */
-  background-color: #E5E5E5;
+  --background-color: #F9F9F9;
   --text-color: #42567A;
+  --graphic-color-10: rgba(66, 86, 122, 0.1);
+  --graphic-color-20: rgba(66, 86, 122, 0.2);
+  --graphic-color-50: rgba(66, 86, 122, 0.5);
 
   --primary-color: #5D5FEF;
   --primary-light-color: #3877EE;
+  --primary-light-color-10: rgba(56, 119, 238, 0.1);
+  --primary-light-color-20: rgba(56, 119, 238, 0.2);
   --secondary-color: #EF5DA8;
+
+  /* normalize styles */
+  margin: 0 auto;
+  font-family: var(--font-pt-sans);
+}
+
+h1 {
+  font-size: 1em;
 }
