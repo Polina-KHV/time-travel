@@ -1,4 +1,3 @@
-// src/components/Carousel/index.tsx
 import { gsap } from "gsap";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -19,7 +18,6 @@ export function Carousel({ type }: ICarousel) {
   const nextRef = useRef<HTMLButtonElement>(null);
   const swiperRef = useRef<any>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const tagRef = useRef<HTMLSpanElement>(null);
 
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -28,7 +26,6 @@ export function Carousel({ type }: ICarousel) {
   const [activeTag, setActiveTag] = useState<string | undefined>(
     dates.find((d) => d.id == activeDate)?.tag
   );
-  const [showTag, setShowTag] = useState(false);
 
   const [width, setWidth] = useState<number>(window.innerWidth);
 
@@ -73,26 +70,12 @@ export function Carousel({ type }: ICarousel) {
       duration: 0.3,
       pointerEvents: "none",
     });
-
-    if (tagRef.current) {
-      tl.to(
-        tagRef.current,
-        {
-          opacity: 0,
-          duration: 0.3,
-          pointerEvents: "none",
-        },
-        0
-      );
-    }
   }, [activeDate]);
 
   useEffect(() => {
     if (!wrapperRef.current) return;
 
-    const tl = gsap.timeline({
-      onComplete: () => setShowTag(true),
-    });
+    const tl = gsap.timeline();
     tl.fromTo(
       wrapperRef.current,
       {
@@ -106,23 +89,6 @@ export function Carousel({ type }: ICarousel) {
         pointerEvents: "auto",
       }
     );
-
-    if (tagRef.current) {
-      tl.fromTo(
-        tagRef.current,
-        {
-          opacity: 0,
-          pointerEvents: "none",
-        },
-        {
-          opacity: 1,
-          duration: 0.3,
-          delay: 0.2,
-          pointerEvents: "auto",
-        },
-        0.2
-      );
-    }
   }, [currentActive]);
 
   if (!currentActive) return null;
@@ -146,11 +112,6 @@ export function Carousel({ type }: ICarousel) {
 
   return (
     <div className={styles.carousel + typeClassName}>
-      {type == "mobile" && (
-        <span ref={tagRef} className={styles.tag}>
-          {activeTag || ""}
-        </span>
-      )}
       <button
         ref={prevRef}
         className={styles.arrow + " " + styles.left + typeClassName}
@@ -159,6 +120,9 @@ export function Carousel({ type }: ICarousel) {
         <ChevronLeft className={styles.icon} />
       </button>
       <div ref={wrapperRef} className={styles.wrapper}>
+        {type == "mobile" && (
+          <span className={styles.tag}>{activeTag || ""}</span>
+        )}
         <Swiper
           spaceBetween={width <= 620 ? 25 : width <= 1200 ? 30 : 40}
           slidesPerView={width <= 980 ? "auto" : 3}

@@ -18,7 +18,7 @@ interface DatesContextType {
   setDates: React.Dispatch<React.SetStateAction<IDate[]>>;
   activeDate: number;
   setActiveDate: React.Dispatch<React.SetStateAction<number>>;
-  baseAngle: number;
+  startAngle: number;
 }
 
 const DatesContext = createContext<DatesContextType | undefined>(undefined);
@@ -35,10 +35,11 @@ export const useDatesContext = () => {
 
 export const DatesProvider = ({ children }: { children: ReactNode }) => {
   const baseAngle = 360 / initialDates.length;
+  const startAngle = initialDates.length == 2 ? 45 : baseAngle / 2;
   const [dates, setDates] = useState<IDate[]>(
     initialDates.map((d, i) => ({
       ...d,
-      angle: baseAngle / 2 + baseAngle * i,
+      angle: startAngle + baseAngle * i,
       from: d.years[0].year,
       to: d.years[d.years.length - 1].year,
     }))
@@ -52,7 +53,7 @@ export const DatesProvider = ({ children }: { children: ReactNode }) => {
         setDates,
         activeDate,
         setActiveDate,
-        baseAngle,
+        startAngle,
       }}
     >
       {children}

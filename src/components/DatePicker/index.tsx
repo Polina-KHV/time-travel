@@ -1,13 +1,13 @@
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { IDate, useDatesContext } from "../../contexts/DatesContext";
+import { Carousel } from "../Carousel";
 import { Switch } from "../Switch";
 import { Title } from "../Title";
 import styles from "./style.module.scss";
-import { Carousel } from "../Carousel";
 
 export function DatePicker() {
-  const { dates, setDates, activeDate, setActiveDate, baseAngle } =
+  const { dates, setDates, activeDate, setActiveDate, startAngle } =
     useDatesContext();
   const pointRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [displayFrom, setDisplayFrom] = useState<number>(dates[0]?.from || 0);
@@ -45,7 +45,7 @@ export function DatePicker() {
     setActiveDate(clickedPoint.id);
     setShowTag(false);
 
-    const targetAngle = baseAngle / 2;
+    const targetAngle = startAngle;
     const currentAngle = clickedPoint.angle;
     let rotationNeeded = targetAngle - currentAngle;
 
@@ -96,7 +96,7 @@ export function DatePicker() {
           const normalizedAngle = ((intermediateAngle % 360) + 360) % 360;
 
           animations.push({
-            duration: 1 / steps,
+            duration: 0.09,
             ease: "none",
             onUpdate: () => {
               positionPointOnCircle(pointElement, normalizedAngle);
@@ -129,7 +129,7 @@ export function DatePicker() {
           );
         } else {
           animations.forEach((animation, i) => {
-            timeline.to(pointElement, animation, i * (1 / steps));
+            timeline.to(pointElement, animation, i * 0.09);
           });
         }
       }
